@@ -2,7 +2,7 @@
 #include <istream>
 #include "Factory.h"
 
-class StreamFactory : public figureFactory {
+class StreamFactory : public Factory {
     std::istream& input;
 public:
     StreamFactory(std::istream& _input);

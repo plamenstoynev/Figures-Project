@@ -1,8 +1,8 @@
 #pragma once
 #include "../src/Figure.h"
 
-class figureFactory {
+class Factory {
 public:
     virtual Figure* create() = 0;
-    virtual ~figureFactory() = default;
+    virtual ~Factory() = default;
 };

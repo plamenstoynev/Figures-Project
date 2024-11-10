@@ -25,17 +25,20 @@ Follow these instructions to set up and run the Figures Project on your machine.
 
 🧩 Project Structure
 
- -	Factories/: Contains factory classes to create figure instances efficiently.
-- src/: Main source code for core application functionalities.
-- 	stringConverter/: Utilities for handling string conversions.
--	tests/: Unit tests to validate application features.
+- **Factories/:** Contains factory classes to create figure instances efficiently.
+- **src/:** Main source code for core application functionalities.
+- 	**stringConverter/:** Utilities for handling string conversions.
+-	**tests/:** Unit tests to validate application features.
 
 📝 Examples
 
 Example usage and commands:
+
 	1.	Create a Figure
 Figure classes can be used to instantiate and manipulate shapes.
-	2.	Convert a String to a Figure
+	
+    2.	Convert a String to a Figure
+
 Use string utilities for conversions, allowing easy data handling.
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/plamenstoynev/Figures-Project) 

@@ -1,42 +1,65 @@
 # Figures Project
 
-Welcome to the **Figures Project**! This project provides an efficient way to create, convert, and manage various geometric figures, designed with robust design patterns to support flexibility and extensibility.
+This project provides a flexible and extensible C++ library for creating and managing various geometric shapes (Circle, Rectangle, Triangle) using the Factory and Abstract Factory design patterns. Each shape is defined by separate classes and header files, and the project uses factories to instantiate these shapes dynamically.
 
-## 🌟 Key Features
+## Project Structure
 
-- **Factory Pattern for Figures**: Dynamically creates instances of various geometric figures.
-- **String Conversion Utilities**: Easily convert strings to figure objects and vice versa.
-- **Comprehensive Testing Suite**: Includes tests to ensure accurate and reliable figure operations.
+The project is structured as follows:
 
-## 🚀 Getting Started
+### Shape Classes
 
-Follow these instructions to set up and run the Figures Project on your machine.
+- **Circle**
+    - `Circle.cpp`: Implementation of the Circle class.
+    - `Circle.h`: Header file for the Circle class.
+- **Rectangle**
+    - `Rectangle.cpp`: Implementation of the Rectangle class.
+    - `Rectangle.h`: Header file for the Rectangle class.
+- **Triangle**
+    - `Triangle.cpp`: Implementation of the Triangle class.
+    - `Triangle.h`: Header file for the Triangle class.
 
-### Prerequisites
+### Base Class
 
-- **C++ Compiler**: Any standard C++ compiler (e.g., GCC, Clang).
-- **CMake**: For build automation.
+- **Figure**
+    - `Figure.h`: Defines the base class for all shapes (Circle, Rectangle, Triangle).
 
-## 🛠️ Usage
+### Factories
 
-- Create Figures: Interactively input parameters to generate different geometric figures.
-- Convert Figures: Use the string conversion utilities to transform between strings and figure objects.
-- Run Tests: Execute the provided test suite to verify functionality.
+- **AbstractFactory**
+    - `AbstractFactory.h`: Abstract factory interface to define the methods for creating shapes.
 
-🧩 Project Structure
+- **FigureFactory**
+    - `FigureFactory.cpp`: Implementation of the main factory class for creating shapes.
+    - `FigureFactory.h`: Header file for FigureFactory.
 
-- **Factories/:** Contains factory classes to create figure instances efficiently.
-- **src/:** Main source code for core application functionalities.
-- 	**stringConverter/:** Utilities for handling string conversions.
--	**tests/:** Unit tests to validate application features.
+- **RandomFactory**
+    - `RandomFactory.cpp`: Implementation of a factory that creates random shapes.
+    - `RandomFactory.h`: Header file for RandomFactory.
 
-📝 Examples
+- **StreamFactory**
+    - `StreamFactory.cpp`: Implementation of a factory that creates shapes based on input streams.
+    - `StreamFactory.h`: Header file for StreamFactory.
 
-Example usage and commands:
 
-	1.	Create a Figure
-Figure classes can be used to instantiate and manipulate shapes.
+## Usage
 
-    2.	Convert a String to a Figure
+You can create various shapes using the factory classes provided. The FigureFactory class is the main factory, and you can extend it or use other specialized factories (RandomFactory, StreamFactory) depending on the source of shape creation (e.g., random shapes, stream input).
 
-Use string utilities for conversions, allowing easy data handling.
+## Getting Started
+
+To compile and run the project, follow these steps:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/plamenstoynev/Figures-Project.git
+
+2. **Compile the code:**
+   Use g++ or another C++ compiler to compile the files. Here’s an example command:
+    ```bash
+    g++ -std=c++11 main.cpp Circle.cpp Rectangle.cpp Triangle.cpp FigureFactory.cpp RandomFactory.cpp StreamFactory.cpp -o main
+   
+3. **Run the executable:** 
+    ```bash
+    ./main
+    ```

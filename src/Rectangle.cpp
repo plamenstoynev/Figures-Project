@@ -21,6 +21,6 @@ double Rectangle::perimeter() const {
 }
 
 std::string Rectangle::toString() const {
-    return "Rectangle " + std::to_string(width) + " " + std::to_string(height);
+    return "Rectangle " + formatDouble(width) + " " + formatDouble(height);
 }
 

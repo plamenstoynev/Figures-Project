@@ -1,9 +1,23 @@
 #include "RandomFactory.h"
 #include <cstdlib>
+#include <vector>
 
 #include "../src/Circle.h"
 #include "../src/Rectangle.h"
 #include "../src/Triangle.h"
+
+std::vector<double> correctTriangleSides() {
+    std::vector<double> result(3);
+
+    do {
+        result[0] = rand() % 10;
+        result[1] = rand() % 10;
+        result[2] = rand() % 10;
+    }
+    while (result[0] + result[1] <= result[2] || result[0] + result[2] <= result[1] || result[1] + result[2] <= result[0]);
+
+    return result;
+}
 
 Figure *RandomFactory::create() {
     int random = rand() % 3;
@@ -12,7 +26,9 @@ Figure *RandomFactory::create() {
             return new Circle(rand()% 10);
         case 1 :
             return new Rectangle(rand() % 10, rand() % 10);
-        case 2 :
-            return new Triangle(rand() % 10, rand() % 10, rand() % 10);
+        case 2 : {
+            std::vector<double> sides = correctTriangleSides();
+            return new Triangle(sides[0], sides[1], sides[2]);
+        }
     }
 }

@@ -1,3 +1,4 @@
+#include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -8,26 +9,25 @@
 
 int main() {
     std::string command;
-    std::string figureData;
-    std::string figureType;
     FigureFactory factory;
-    Figure** figures = new Figure*[10];
+    std::vector<Figure*> figures;
+    stringConvertible* stringConverter;
     size_t index = 0;
-
-    std::cout << "Enter command: ";
+    std::ofstream file("figures.txt");
 
     while(command != "exit" && index < 3) {
+        std::cout << "Enter command: (random or stream)";
         std::cin >> command;
         if(command == "random") {
-            figures[index] = factory.chooseFactory("random")->create();
+            figures.push_back(factory.chooseFactory("random")->create());
             index++;
         }
         else if(command == "stream") {
             std::cout << "Enter figure data: ";
             std::cin.ignore();
-            std::getline(std::cin, figureData);
-            std::istringstream input(figureData);
-            figures[index] = factory.chooseFactory("stream", &input)->create();
+            std::getline(std::cin, command);
+            std::istringstream input(command);
+            figures.push_back(factory.chooseFactory("stream", &input)->create());
             index++;
         }
         else if(command == "exit") {
@@ -39,14 +39,14 @@ int main() {
         }
     }
 
-    stringConvertible* stringConverter;
-
     for (size_t i = 0; i < index; i++) {
         stringConverter = dynamic_cast<stringConvertible*>(figures[i]);
         if (stringConverter != nullptr) {
             std::cout << stringConverter->toString() << std::endl;
+
+            file << stringConverter->toString();
+            file << std::endl;
         }
     }
-
     return 0;
 }

@@ -1,6 +1,7 @@
 #include "Circle.h"
 #include <stdexcept>
 
+
 Circle::Circle(double radius) {
     if (radius <= 0)
         throw std::invalid_argument("Radius must be greater than 0");
@@ -18,5 +19,5 @@ double Circle::perimeter() const {
 }
 
 std::string Circle::toString() const {
-    return "Circle " + std::to_string(radius);
+    return "Circle " + formatDouble(radius);
 }

@@ -3,7 +3,7 @@
 
 
 Triangle::Triangle(double a,double b,double c) {
-    if (a + b > c && a + c > b && b + c > a) {
+    if (a + b > c && a + c > b && b + c > a && a > 0 && b > 0 && c > 0) {
         this->a = a;
         this->b = b;
         this->c = c;
@@ -23,6 +23,6 @@ double Triangle::perimeter() const  {
 }
 
 std::string Triangle::toString() const {
-    return "Triangle " + std::to_string(a) + " " + std::to_string(b) + " " + std::to_string(c);
+    return "Triangle " + formatDouble(a) + " " + formatDouble(b) + " " + formatDouble(c);
 }
 

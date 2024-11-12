@@ -34,11 +34,8 @@ int main() {
         else if(command == "stream") {
             std::cout << "Enter figure data: ";
             std::cin.ignore();
-            std::getline(std::cin, command);
-            std::istringstream input(command);
-            //use try catch block to catch exceptions
             try {
-                figures.push_back(factory.chooseFactory("stream", &input)->create());
+                figures.push_back(factory.chooseFactory("stream", &std::cin)->create());
             } catch (std::invalid_argument& e) {
                 std::cout << e.what() << std::endl;
             }

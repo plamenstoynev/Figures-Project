@@ -1,7 +1,6 @@
 # Figures Project
 
-This project provides a flexible and extensible C++ library for creating and managing various geometric shapes (Circle, Rectangle, Triangle) using the Factory and Abstract Factory design patterns. Each shape is defined by separate classes and header files, and the project uses factories to instantiate these shapes dynamically.
-
+This project provides a flexible and extensible C++ library for creating and managing various geometric shapes (Circle, Rectangle, Triangle) using the Factory, Abstract Factory, and Prototype design patterns. Each shape is defined by separate classes and header files. The project uses factories to instantiate these shapes dynamically and employs the Prototype pattern to allow cloning of existing shapes, providing a flexible way to create shape copies without directly instantiating new objects.
 ## Project Structure
 
 The project is structured as follows:

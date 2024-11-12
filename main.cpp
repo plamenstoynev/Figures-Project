@@ -10,7 +10,7 @@
 int main() {
     std::string command;
     FigureFactory factory;
-    std::vector<Figure*> figures;
+    std::vector<std::unique_ptr<Figure>> figures;
     stringConvertible* stringConverter;
     std::ofstream file("figures.txt");
 
@@ -28,8 +28,13 @@ int main() {
         std::cout << "Enter command: ";
         std::cin >> command;
 
-        if(command == "random")
-            figures.push_back(factory.chooseFactory("random")->create());
+        if(command == "random") {
+            try {
+                figures.push_back(factory.chooseFactory("random")->create());
+            } catch (std::invalid_argument& e) {
+                std::cout << e.what() << std::endl;
+            }
+        }
 
         else if(command == "stream") {
             std::cout << "Enter figure data: ";
@@ -51,8 +56,17 @@ int main() {
         }
     }
 
-    for (auto it : figures) {
-        stringConverter = dynamic_cast<stringConvertible*>(it);
+    std::cout << "Perimeters of figures: " << std::endl;
+
+    for (const auto & figure : figures) {
+        std::unique_ptr<Figure> clone = figure->clone();
+        std::cout << "Perimeter: " << clone->perimeter() << std::endl;
+    }
+
+    std::cout << "Figures: " << std::endl;
+
+    for (const auto & figure : figures) {
+        stringConverter = dynamic_cast<stringConvertible*>(figure.get());
         if (stringConverter != nullptr) {
             std::cout << stringConverter->toString() << std::endl;
 

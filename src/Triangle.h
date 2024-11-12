@@ -11,7 +11,7 @@ private:
 public:
     Triangle() = default;
     Triangle(double a,double b,double c);
-    Figure* clone() const override;
+    std::unique_ptr<Figure> clone() const override;
 
     double perimeter() const override;
     std::string toString() const override;

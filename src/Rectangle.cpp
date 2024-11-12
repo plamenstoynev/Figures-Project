@@ -11,8 +11,8 @@ Rectangle::Rectangle(double width, double height) {
         throw std::invalid_argument("Sides must be greater than 0");
 }
 
-Figure *Rectangle::clone() const {
-    return new Rectangle(*this);
+std::unique_ptr<Figure>Rectangle::clone() const {
+    return std::make_unique<Rectangle>(*this);
 }
 
 

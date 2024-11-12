@@ -1,6 +1,7 @@
 #include "catch2/catch_all.hpp"
 #include "../Factories/AbstractFactory.h"
 #include "../Factories/FigureFactory.h"
+#include "../Factories/RandomFactory.h"
 
 TEST_CASE("Abstract Factory tests") {
     FigureFactory factory;

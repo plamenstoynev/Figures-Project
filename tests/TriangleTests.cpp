@@ -35,13 +35,13 @@ TEST_CASE("Triangle toString"){
 
 TEST_CASE("Triangle clone") {
     Triangle triangle(3,4,5);
-    Triangle* triangle2 = dynamic_cast<Triangle*>(triangle.clone());
+    Triangle* triangle2 = dynamic_cast<Triangle*>(triangle.clone().get());
     REQUIRE(triangle2->toString() == "Triangle 3.000000 4.000000 5.000000");
     REQUIRE(triangle2->perimeter() == 12);
     delete triangle2;
 
     Triangle triangle3(5,12,13);
-    Triangle* triangle4 = dynamic_cast<Triangle*>(triangle3.clone());
+    Triangle* triangle4 = dynamic_cast<Triangle*>(triangle3.clone().get());
     REQUIRE(triangle4->toString() == "Triangle 5.000000 12.000000 13.000000");
     REQUIRE(triangle4->perimeter() == 30);
     delete triangle4;

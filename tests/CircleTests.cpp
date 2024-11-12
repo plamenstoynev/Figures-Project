@@ -33,13 +33,13 @@ TEST_CASE("Circle toString") {
 
 TEST_CASE("Circle clone") {
     Circle circle(3);
-    Circle* circle2 = dynamic_cast<Circle*>(circle.clone());
+    Circle* circle2 = dynamic_cast<Circle*>(circle.clone().get());
     REQUIRE(circle2->toString() == "Circle 3.000000");
     REQUIRE(circle2->perimeter() == Catch::Approx(18.8495559215));
     delete circle2;
 
     Circle circle3(5);
-    Circle* circle4 = dynamic_cast<Circle*>(circle3.clone());
+    Circle* circle4 = dynamic_cast<Circle*>(circle3.clone().get());
     REQUIRE(circle4->toString() == "Circle 5.000000");
     REQUIRE(circle4->perimeter() == Catch::Approx(31.4159265359));
     delete circle4;

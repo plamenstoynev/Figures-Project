@@ -35,12 +35,12 @@ TEST_CASE("Rectangle toString") {
 
 TEST_CASE("Rectangle clone") {
     Rectangle rectangle(3,4);
-    Rectangle* rectangle2 = dynamic_cast<Rectangle*>(rectangle.clone());
+    Rectangle* rectangle2 = dynamic_cast<Rectangle*>(rectangle.clone().get());
     REQUIRE(rectangle2->toString() == "Rectangle 3.000000 4.000000");
     REQUIRE(rectangle2->perimeter() == 14);
 
     Rectangle rectangle3(5,12);
-    Rectangle* rectangle4 = dynamic_cast<Rectangle*>(rectangle3.clone());
+    Rectangle* rectangle4 = dynamic_cast<Rectangle*>(rectangle3.clone().get());
     REQUIRE(rectangle4->toString() == "Rectangle 5.000000 12.000000");
     REQUIRE(rectangle4->perimeter() == 34);
 }

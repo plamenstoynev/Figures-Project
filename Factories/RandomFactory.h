@@ -1,8 +1,9 @@
 #pragma once
+#include <memory>
 #include "Factory.h"
 
 class RandomFactory : public Factory {
 public:
-    Figure* create() override;
+    std::unique_ptr<Figure> create() override;
     ~RandomFactory() override = default;
 };

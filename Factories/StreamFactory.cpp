@@ -6,10 +6,10 @@ StreamFactory::StreamFactory(std::istream& _input) : input(_input) {
         throw std::runtime_error("Invalid input");
 }
 
-Figure* StreamFactory::create() {
+std::unique_ptr<Figure> StreamFactory::create() {
     std::string figure;
     if(std::getline(input, figure))
-        return stringToFigure().createFigureByString(figure);
+        return std::unique_ptr<Figure>(stringToFigure().createFigureByString(figure));
     else
         throw std::invalid_argument("Invalid input");
 }

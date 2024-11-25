@@ -24,23 +24,23 @@ TEST_CASE("Rectangle perimeter"){
 
 TEST_CASE("Rectangle toString") {
     Rectangle rectangle(3,4);
-    REQUIRE(rectangle.toString() == "Rectangle 3.000000 4.000000");
+    REQUIRE(rectangle.toString() == "Rectangle 3 4");
 
     Rectangle rectangle2(5,12);
-    REQUIRE(rectangle2.toString() == "Rectangle 5.000000 12.000000");
+    REQUIRE(rectangle2.toString() == "Rectangle 5 12");
 
     Rectangle rectangle3(8,15);
-    REQUIRE(rectangle3.toString() == "Rectangle 8.000000 15.000000");
+    REQUIRE(rectangle3.toString() == "Rectangle 8 15");
 }
 
 TEST_CASE("Rectangle clone") {
     Rectangle rectangle(3,4);
-    Rectangle* rectangle2 = dynamic_cast<Rectangle*>(rectangle.clone().get());
-    REQUIRE(rectangle2->toString() == "Rectangle 3.000000 4.000000");
+    std::unique_ptr<Rectangle> rectangle2 = std::unique_ptr<Rectangle>(dynamic_cast<Rectangle*>(rectangle.clone().release()));
+    REQUIRE(rectangle2->toString() == "Rectangle 3 4");
     REQUIRE(rectangle2->perimeter() == 14);
 
     Rectangle rectangle3(5,12);
-    Rectangle* rectangle4 = dynamic_cast<Rectangle*>(rectangle3.clone().get());
-    REQUIRE(rectangle4->toString() == "Rectangle 5.000000 12.000000");
+    std::unique_ptr<Rectangle> rectangle4 = std::unique_ptr<Rectangle>(dynamic_cast<Rectangle*>(rectangle3.clone().release()));
+    REQUIRE(rectangle4->toString() == "Rectangle 5 12");
     REQUIRE(rectangle4->perimeter() == 34);
 }

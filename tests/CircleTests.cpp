@@ -22,25 +22,23 @@ TEST_CASE("Circle perimeter") {
 
 TEST_CASE("Circle toString") {
     Circle circle(3);
-    REQUIRE(circle.toString() == "Circle 3.000000");
+    REQUIRE(circle.toString() == "Circle 3");
 
     Circle circle2(5);
-    REQUIRE(circle2.toString() == "Circle 5.000000");
+    REQUIRE(circle2.toString() == "Circle 5");
 
     Circle circle3(8);
-    REQUIRE(circle3.toString() == "Circle 8.000000");
+    REQUIRE(circle3.toString() == "Circle 8");
 }
 
 TEST_CASE("Circle clone") {
     Circle circle(3);
-    Circle* circle2 = dynamic_cast<Circle*>(circle.clone().get());
-    REQUIRE(circle2->toString() == "Circle 3.000000");
+    std::unique_ptr<Circle> circle2 = std::unique_ptr<Circle>(dynamic_cast<Circle*>(circle.clone().release()));
+    REQUIRE(circle2->toString() == "Circle 3");
     REQUIRE(circle2->perimeter() == Catch::Approx(18.8495559215));
-    delete circle2;
 
     Circle circle3(5);
-    Circle* circle4 = dynamic_cast<Circle*>(circle3.clone().get());
-    REQUIRE(circle4->toString() == "Circle 5.000000");
+    std::unique_ptr<Circle> circle4 = std::unique_ptr<Circle>(dynamic_cast<Circle*>(circle3.clone().release()));
+    REQUIRE(circle4->toString() == "Circle 5");
     REQUIRE(circle4->perimeter() == Catch::Approx(31.4159265359));
-    delete circle4;
 }

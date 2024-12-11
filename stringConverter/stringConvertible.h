@@ -8,7 +8,7 @@ public:
     virtual std::string toString() const = 0;
     virtual ~stringConvertible() = default;
 
-    std::string formatDouble(double value) const {
+    static std::string formatDouble(double value)  {
         std::string result = std::to_string(value);
         for (int i = result.size() - 1; i >= 0; i--) {
             if (result[i] == '.') {

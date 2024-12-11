@@ -26,11 +26,12 @@ TEST_CASE("Rectangle toString") {
     Rectangle rectangle(3,4);
     REQUIRE(rectangle.toString() == "Rectangle 3 4");
 
-    Rectangle rectangle2(5,12);
-    REQUIRE(rectangle2.toString() == "Rectangle 5 12");
+    Rectangle rectangle4(2.3,4.5);
+    REQUIRE(rectangle4.toString() == "Rectangle 2.3 4.5");
 
-    Rectangle rectangle3(8,15);
-    REQUIRE(rectangle3.toString() == "Rectangle 8 15");
+    //float
+    //float for perimeter
+    //make tests for negative values
 }
 
 TEST_CASE("Rectangle clone") {
@@ -44,3 +45,6 @@ TEST_CASE("Rectangle clone") {
     REQUIRE(rectangle4->toString() == "Rectangle 5 12");
     REQUIRE(rectangle4->perimeter() == 34);
 }
+
+//think about, don't make new pointer, get clone, don't release.
+//dynamic cast don't garantee work

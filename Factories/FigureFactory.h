@@ -3,6 +3,6 @@
 
 class FigureFactory : public AbstractFigureFactory {
 public:
-    std::unique_ptr<Factory> chooseFactory(const std::string& factoryType,std::istream* input = nullptr) override;
+    std::shared_ptr<Factory> chooseFactory(const std::string& factoryType,std::istream* input = nullptr) override;
     ~FigureFactory() override = default;
 };

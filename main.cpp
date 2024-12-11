@@ -10,7 +10,7 @@
 int main() {
     std::string command;
     FigureFactory factory;
-    std::vector<std::unique_ptr<Figure>> figures;
+    std::vector<std::shared_ptr<Figure>> figures;
     stringConvertible* stringConverter;
     std::ofstream file("figures.txt");
 

@@ -16,5 +16,7 @@ public:
     double perimeter() const override;
     std::string toString() const override;
 
+    static std::vector<double> correctTriangleSides();
+
     ~Triangle() override = default;
 };

@@ -4,6 +4,6 @@
 
 class Factory {
 public:
-    virtual std::unique_ptr<Figure> create() = 0;
+    virtual std::shared_ptr<Figure> create() = 0;
     virtual ~Factory() = default;
 };

@@ -11,6 +11,8 @@ TEST_CASE("Triangle constructor") {
     REQUIRE_THROWS(Triangle(3,1,1));
 }
 
+//diff neg and pos
+
 TEST_CASE("Triangle perimeter"){
     Triangle triangle(3, 4, 5);
     REQUIRE(triangle.perimeter() == 12);
@@ -22,6 +24,7 @@ TEST_CASE("Triangle perimeter"){
     REQUIRE(triangle3.perimeter() == 40);
 }
 
+
 TEST_CASE("Triangle toString"){
     Triangle triangle(3,4,5);
     REQUIRE(triangle.toString() == "Triangle 3 4 5");
@@ -31,6 +34,8 @@ TEST_CASE("Triangle toString"){
 
     Triangle triangle3(8,15,17);
     REQUIRE(triangle3.toString() == "Triangle 8 15 17");
+    //float
+    //negative
 }
 
 TEST_CASE("Triangle clone") {
@@ -44,4 +49,4 @@ TEST_CASE("Triangle clone") {
     REQUIRE(triangle4->toString() == "Triangle 5 12 13");
     REQUIRE(triangle4->perimeter() == 30);
 }
-
+//dynamic cast
